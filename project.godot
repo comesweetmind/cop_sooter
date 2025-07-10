@@ -1,0 +1,44 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="cop sooter"
+run/main_scene="uid://denqo8etmkgfa"
+config/features=PackedStringArray("4.4", "Mobile")
+config/icon="res://Assets/icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[input]
+
+walk_down={
+"deadzone": 0.2,
+"events": []
+}
+walk_up={
+"deadzone": 0.2,
+"events": []
+}
+walk_left={
+"deadzone": 0.2,
+"events": []
+}
+walk_right={
+"deadzone": 0.2,
+"events": []
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
