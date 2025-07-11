@@ -1,10 +1,27 @@
-[gd_scene load_steps=22 format=3 uid="uid://bctf3qxccuqbb"]
+[gd_scene load_steps=27 format=3 uid="uid://bctf3qxccuqbb"]
 
 [ext_resource type="Texture2D" uid="uid://dq7yj7xvhdtk3" path="res://Assets/characters/basic_charakter_spritesheet.png" id="1_hidel"]
 [ext_resource type="Script" uid="uid://bhouqy4gaca03" path="res://Charster/player.gd" id="1_jlyk1"]
+[ext_resource type="Texture2D" uid="uid://drelcqvo21jdg" path="res://Assets/characters/Free Chicken Sprites.png" id="2_emuj7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jlyk1"]
 size = Vector2(14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx8qk"]
+atlas = ExtResource("2_emuj7")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq6o3"]
+atlas = ExtResource("2_emuj7")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14tlr"]
+atlas = ExtResource("2_emuj7")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjg3u"]
+atlas = ExtResource("2_emuj7")
+region = Rect2(48, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_emuj7"]
 atlas = ExtResource("1_hidel")
@@ -76,6 +93,23 @@ region = Rect2(144, 48, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fqvca"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx8qk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq6o3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14tlr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjg3u")
+}],
+"loop": false,
+"name": &"Dash",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_emuj7")
@@ -161,5 +195,7 @@ shape = SubResource("RectangleShape2D_jlyk1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fqvca")
-animation = &"Walk_bottom"
+animation = &"Dash"
 autoplay = "Idle"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
